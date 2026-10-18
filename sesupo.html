@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sesupo Business Solutions | Printing, Branding & Design — Mahikeng</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0e1420;
+      --ink-soft: #4a5468;
+      --ink-muted: #7b8699;
+      --bg: #f6f7fb;
+      --bg-card: #ffffff;
+      --bg-elev: #eef1f8;
+      --border: #e3e7f0;
+      --border-strong: #d0d6e3;
+      --accent: #ff5a1f;
+      --accent-dim: #e64a10;
+      --accent-soft: #fff0e8;
+      --blue: #1a3a8f;
+      --blue-soft: #e8edfa;
+      --green: #10b981;
+      --yellow: #fbbf24;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .logo-mark {
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700; font-size: 1.3rem;
+      flex-shrink: 0; position: relative; overflow: hidden;
+    }
+    .logo-mark::after {
+      content: ""; position: absolute; bottom: -6px; right: -6px;
+      width: 16px; height: 16px; background: var(--accent); border-radius: 50%;
+    }
+    .logo-text { line-height: 1.1; }
+    .logo-text strong { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: var(--ink); display: block; }
+    .logo-text small { font-size: 0.65rem; color: var(--ink-muted); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--ink-soft); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent); color: var(--white) !important;
+      padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 0.8rem;
+      transition: all 0.2s; letter-spacing: 0.02em; box-shadow: 0 2px 8px rgba(255, 90, 31, 0.25);
+    }
+    .nav-cta:hover { background: var(--accent-dim); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(255, 90, 31, 0.35); }
+    .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: var(--ink); cursor: pointer; padding: 4px; }
+
+    .hero { padding: 140px 24px 80px; background: var(--bg); position: relative; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; top: 80px; right: -100px; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(255, 90, 31, 0.12), transparent 70%); pointer-events: none;
+    }
+    .hero::after {
+      content: ""; position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(26, 58, 143, 0.08), transparent 70%); pointer-events: none;
+    }
+    .hero-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.15fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 2; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent); font-weight: 700; background: var(--accent-soft);
+      padding: 8px 16px; border-radius: 40px; margin-bottom: 24px;
+    }
+    .hero-tag::before { content: ""; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .hero h1 { font-size: clamp(2.2rem, 5.5vw, 3.6rem); margin-bottom: 20px; letter-spacing: -0.03em; }
+    .hero h1 span { color: var(--accent); }
+    .hero-sub { font-size: 1.05rem; color: var(--ink-soft); max-width: 540px; margin-bottom: 32px; line-height: 1.7; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 10px;
+      font-weight: 600; font-size: 0.9rem; transition: all 0.2s; cursor: pointer; border: none; letter-spacing: 0.01em;
+    }
+    .btn-primary { background: var(--accent); color: var(--white); box-shadow: 0 4px 14px rgba(255, 90, 31, 0.25); }
+    .btn-primary:hover { background: var(--accent-dim); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255, 90, 31, 0.35); }
+    .btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border-strong); }
+    .btn-outline:hover { border-color: var(--ink); background: var(--white); }
+    .hero-trust { display: flex; gap: 24px; flex-wrap: wrap; padding-top: 28px; border-top: 1px solid var(--border); }
+    .hero-trust-item { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; color: var(--ink-soft); }
+    .hero-trust-item strong { color: var(--ink); font-weight: 700; font-family: 'Space Grotesk', sans-serif; }
+    .hero-trust-icon { color: var(--accent); font-size: 1rem; }
+
+    .hero-visual { position: relative; }
+    .hero-card {
+      background: var(--white); border-radius: 16px; padding: 24px;
+      box-shadow: 0 12px 40px rgba(14, 20, 32, 0.08); border: 1px solid var(--border);
+      margin-bottom: 16px; transition: transform 0.3s;
+    }
+    .hero-card:hover { transform: translateX(-4px); }
+    .hero-card-head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+    .hero-card-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .hero-card-icon.orange { background: var(--accent-soft); color: var(--accent); }
+    .hero-card-icon.blue { background: var(--blue-soft); color: var(--blue); }
+    .hero-card-icon.green { background: #d9f5ea; color: var(--green); }
+    .hero-card h4 { font-size: 0.98rem; color: var(--ink); margin-bottom: 2px; }
+    .hero-card p { font-size: 0.78rem; color: var(--ink-muted); }
+    .hero-card-stack { display: flex; flex-direction: column; }
+    .hero-card:nth-child(2) { margin-left: 32px; }
+    .hero-card:nth-child(3) { margin-left: 16px; }
+
+    section { padding: 90px 24px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section-head { max-width: 720px; margin-bottom: 60px; }
+    .section-label {
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
+      margin-bottom: 14px; font-weight: 700; display: inline-block; padding: 6px 14px;
+      background: var(--accent-soft); border-radius: 40px;
+    }
+    .section-title { font-size: clamp(1.8rem, 4.5vw, 2.6rem); margin-bottom: 16px; color: var(--ink); }
+    .section-intro { color: var(--ink-soft); font-size: 1rem; line-height: 1.7; max-width: 640px; }
+
+    #services { background: var(--white); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .service-card { background: var(--bg); border-radius: 14px; padding: 28px; border: 1px solid var(--border); transition: all 0.25s; position: relative; overflow: hidden; }
+    .service-card::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(14, 20, 32, 0.08); border-color: var(--border-strong); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--white); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 18px; }
+    .service-card h3 { font-size: 1.15rem; margin-bottom: 10px; color: var(--ink); }
+    .service-card p { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.6; margin-bottom: 16px; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .service-tag { font-size: 0.7rem; background: var(--bg-elev); color: var(--ink-soft); padding: 4px 10px; border-radius: 20px; font-weight: 500; }
+
+    #why { background: var(--ink); color: var(--white); }
+    #why .section-label { background: rgba(255, 90, 31, 0.15); color: var(--accent); }
+    #why .section-title { color: var(--white); }
+    #why .section-intro { color: rgba(255,255,255,0.7); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+    .why-item { padding: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; transition: all 0.25s; }
+    .why-item:hover { background: rgba(255,255,255,0.06); border-color: rgba(255, 90, 31, 0.4); transform: translateY(-4px); }
+    .why-num { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 700; color: var(--accent); margin-bottom: 14px; line-height: 1; }
+    .why-item h3 { font-size: 1.05rem; color: var(--white); margin-bottom: 10px; }
+    .why-item p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+    #reviews { background: var(--bg); }
+    .reviews-top { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; margin-bottom: 48px; padding: 32px; background: var(--white); border-radius: 16px; border: 1px solid var(--border); }
+    .reviews-score { display: flex; align-items: center; gap: 20px; }
+    .reviews-score-num { font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 700; color: var(--ink); line-height: 1; }
+    .reviews-score-meta { font-size: 0.85rem; color: var(--ink-soft); }
+    .reviews-score-stars { color: var(--yellow); font-size: 1.1rem; letter-spacing: 2px; display: block; margin-bottom: 4px; }
+    .reviews-divider { width: 1px; height: 60px; background: var(--border); }
+    .reviews-summary { font-size: 0.95rem; color: var(--ink-soft); max-width: 500px; line-height: 1.7; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .review-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px; transition: all 0.25s; position: relative; }
+    .review-card:hover { box-shadow: 0 12px 30px rgba(14, 20, 32, 0.06); transform: translateY(-3px); }
+    .review-quote { color: var(--accent); font-size: 2.5rem; font-family: Georgia, serif; line-height: 1; margin-bottom: 12px; opacity: 0.4; }
+    .review-card .stars { color: var(--yellow); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 14px; display: block; }
+    .review-card p { font-size: 0.95rem; line-height: 1.7; color: var(--ink-soft); margin-bottom: 20px; }
+    .review-author { font-size: 0.78rem; color: var(--ink-muted); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding-top: 16px; border-top: 1px solid var(--border); }
+
+    #contact { background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .contact-block { margin-bottom: 32px; }
+    .contact-block h4 { font-size: 1.05rem; margin-bottom: 8px; color: var(--ink); display: flex; align-items: center; gap: 10px; }
+    .contact-block p, .contact-block a { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.7; }
+    .contact-block a { font-weight: 500; }
+    .contact-block a:hover { color: var(--accent); }
+    .contact-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .contact-actions .btn { padding: 13px 24px; font-size: 0.88rem; }
+    .map-embed { width: 100%; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: var(--bg-elev); }
+    .map-embed iframe { width: 100%; height: 100%; border: 0; }
+
+    .cta-final { background: linear-gradient(135deg, var(--ink) 0%, #1c2842 100%); color: var(--white); text-align: center; padding: 90px 24px; position: relative; overflow: hidden; }
+    .cta-final::before { content: ""; position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(255, 90, 31, 0.15), transparent 60%); pointer-events: none; }
+    .cta-final-inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+    .cta-final h2 { font-size: clamp(1.8rem, 4.5vw, 2.8rem); margin-bottom: 16px; color: var(--white); }
+    .cta-final p { color: rgba(255,255,255,0.7); margin-bottom: 32px; font-size: 1rem; line-height: 1.7; }
+    .cta-final-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    footer { background: #0a0f1a; color: rgba(255,255,255,0.6); padding: 60px 24px 30px; text-align: center; }
+    .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .footer-tag { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; font-weight: 600; }
+    .footer-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
+    .footer-links a { font-size: 0.85rem; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+    .whatsapp-float {
+      position: fixed; bottom: 20px; right: 20px; z-index: 90; background: var(--accent); color: white;
+      width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; box-shadow: 0 6px 20px rgba(255, 90, 31, 0.4); transition: transform 0.2s;
+    }
+    .whatsapp-float:hover { transform: scale(1.08); }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero { padding: 120px 20px 60px; }
+      .hero-card:nth-child(2), .hero-card:nth-child(3) { margin-left: 0; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column;
+        background: var(--white); padding: 20px; gap: 16px; border-bottom: 1px solid var(--border);
+        align-items: flex-start; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      }
+      .nav-links.open { display: flex; }
+      .menu-toggle { display: block; }
+      section { padding: 60px 20px; }
+      .hero-trust { gap: 16px; font-size: 0.78rem; }
+      .reviews-top { padding: 24px; flex-direction: column; align-items: flex-start; }
+      .reviews-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="inner">
+      <a href="#top" class="nav-logo">
+        <div class="logo-mark">S</div>
+        <div class="logo-text"><strong>Sesupo</strong><small>Business Solutions</small></div>
+      </a>
+      <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+      <div class="nav-links">
+        <a href="#services" onclick="document.querySelector('.nav-links').classList.remove('open')">Services</a>
+        <a href="#why" onclick="document.querySelector('.nav-links').classList.remove('open')">Why Us</a>
+        <a href="#reviews" onclick="document.querySelector('.nav-links').classList.remove('open')">Reviews</a>
+        <a href="#contact" onclick="document.querySelector('.nav-links').classList.remove('open')">Contact</a>
+        <a href="tel:0606658968" class="nav-cta">Get a Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="top">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag">Printing • Branding • Design</div>
+        <h1>Everything your business needs. <span>Under one roof.</span></h1>
+        <p class="hero-sub">
+          From business cards and brochures to vehicle branding, T-shirts, and large-format signage — Sesupo Business Solutions handles the design, printing, and installation for Mahikeng businesses.
+        </p>
+        <div class="hero-actions">
+          <a href="tel:0606658968" class="btn btn-primary">📞 Call for a Quote</a>
+          <a href="#services" class="btn btn-outline">See All Services</a>
+        </div>
+        <div class="hero-trust">
+          <div class="hero-trust-item"><span class="hero-trust-icon">★</span><span><strong>4.9</strong> on Google (10 reviews)</span></div>
+          <div class="hero-trust-item"><span class="hero-trust-icon">⚡</span><span><strong>Fast</strong> turnaround</span></div>
+          <div class="hero-trust-item"><span class="hero-trust-icon">✓</span><span>Design to <strong>final product</strong></span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="hero-card"><div class="hero-card-head"><div class="hero-card-icon orange">🎨</div><div><h4>Graphic Design</h4><p>Logos, flyers, brand identity</p></div></div></div>
+          <div class="hero-card"><div class="hero-card-head"><div class="hero-card-icon blue">🖨️</div><div><h4>Printing & Branding</h4><p>Business cards, brochures, signage</p></div></div></div>
+          <div class="hero-card"><div class="hero-card-head"><div class="hero-card-icon green">👕</div><div><h4>T-Shirts & Uniforms</h4><p>Sublimation, promotional items</p></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label">Our Services</span>
+        <h2 class="section-title">One team. Every print and branding service.</h2>
+        <p class="section-intro">Whether it's a stack of business cards or a full vehicle wrap, we take your idea from design concept to finished product — clean, fast, and professionally installed.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card"><div class="service-icon">🎨</div><h3>Graphic Design</h3><p>Creative design work for businesses of every size — from logos to full brand identities.</p><div class="service-tags"><span class="service-tag">Logo Design</span><span class="service-tag">Brand Identity</span><span class="service-tag">Flyers</span></div></div>
+        <div class="service-card"><div class="service-icon">💼</div><h3>Business Printing</h3><p>Professional print for every business need — clean, crisp, and ready for clients.</p><div class="service-tags"><span class="service-tag">Business Cards</span><span class="service-tag">Letterheads</span><span class="service-tag">Forms</span><span class="service-tag">Documents</span></div></div>
+        <div class="service-card"><div class="service-icon">📄</div><h3>Flyers & Brochures</h3><p>Marketing materials that stand out — designed to be seen and to convert.</p><div class="service-tags"><span class="service-tag">Flyers</span><span class="service-tag">Brochures</span><span class="service-tag">Posters</span><span class="service-tag">Calendars</span></div></div>
+        <div class="service-card"><div class="service-icon">🖨️</div><h3>Colour & Digital Printing</h3><p>High-quality colour printing for one-offs or bulk runs. Fast, sharp, reliable.</p><div class="service-tags"><span class="service-tag">Colour Printing</span><span class="service-tag">Digital Printing</span><span class="service-tag">Photo Printing</span></div></div>
+        <div class="service-card"><div class="service-icon">📑</div><h3>Copy, Scan & Binding</h3><p>All your document services under one roof — from single copies to full-bound books.</p><div class="service-tags"><span class="service-tag">Copy Services</span><span class="service-tag">Scanning</span><span class="service-tag">Binding</span><span class="service-tag">Books</span></div></div>
+        <div class="service-card"><div class="service-icon">🚗</div><h3>Vehicle Branding</h3><p>Turn every trip into advertising. Professional vehicle wraps and decals installed on-site.</p><div class="service-tags"><span class="service-tag">Vehicle Wraps</span><span class="service-tag">Decals</span><span class="service-tag">Installation</span></div></div>
+        <div class="service-card"><div class="service-icon">🪧</div><h3>Signage & Business Branding</h3><p>Signs that get noticed. From shopfront signage to full business branding packages.</p><div class="service-tags"><span class="service-tag">Signage</span><span class="service-tag">Business Branding</span><span class="service-tag">Installation</span></div></div>
+        <div class="service-card"><div class="service-icon">👕</div><h3>T-Shirt Printing & Sublimation</h3><p>Custom apparel and promotional products — printed and ready for your team or event.</p><div class="service-tags"><span class="service-tag">T-Shirt Printing</span><span class="service-tag">Sublimation</span><span class="service-tag">Dye Sublimation</span></div></div>
+        <div class="service-card"><div class="service-icon">🧾</div><h3>Uniforms & Stationery Supply</h3><p>Everything your business runs on — uniforms, stationery, and printed essentials.</p><div class="service-tags"><span class="service-tag">Uniforms</span><span class="service-tag">Stationery</span><span class="service-tag">Promotional Items</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label">Why Choose Sesupo</span>
+        <h2 class="section-title">Quality you can see. Service you can feel.</h2>
+        <p class="section-intro">Our clients don't just come back — they send other people. Here's what they say about working with us.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-item"><div class="why-num">01</div><h3>Design to Final Product</h3><p>From the first sketch to the finished piece, we handle everything — so you don't have to run around.</p></div>
+        <div class="why-item"><div class="why-num">02</div><h3>Fast & Affordable Quotes</h3><p>Quick turnaround on quotes and delivery — without cutting corners on quality.</p></div>
+        <div class="why-item"><div class="why-num">03</div><h3>Trusted by Other Businesses</h3><p>Other companies outsource their own work to us — including installation of items couriered from far away.</p></div>
+        <div class="why-item"><div class="why-num">04</div><h3>Respect & Understanding</h3><p>We treat every customer with respect and patience — no rushed service, no confusing pricing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label">Customer Reviews</span>
+        <h2 class="section-title">What Mahikeng is saying.</h2>
+      </div>
+      <div class="reviews-top">
+        <div class="reviews-score">
+          <div class="reviews-score-num">4.9</div>
+          <div class="reviews-score-meta"><span class="reviews-score-stars">★★★★★</span>Based on <strong>10 Google reviews</strong></div>
+        </div>
+        <div class="reviews-divider"></div>
+        <div class="reviews-summary">Trusted by local businesses and individuals for our quality, speed, and friendly service. Whether it's a single T-shirt or a full signage install, we treat every job the same way.</div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card"><div class="review-quote">"</div><span class="stars">★★★★★</span><p>Quality and service from design to final product. The t-shirts are comfortable, the prints are crisp, and the result exceeded our expectations. Highly recommended. 👕✨</p><div class="review-author">— Google Review</div></div>
+        <div class="review-card"><div class="review-quote">"</div><span class="stars">★★★★★</span><p>What an amazing team. Fast and affordable quotes. The service is outstanding. Used them as an outsource supplier to install a sign that was couriered to them.</p><div class="review-author">— Google Review</div></div>
+        <div class="review-card"><div class="review-quote">"</div><span class="stars">★★★★★</span><p>Treats customers with respect and love. The business is very friendly and understanding. No regrets.</p><div class="review-author">— Google Review</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title">Let's bring your idea to life.</h2>
+        <p class="section-intro">Call or visit us — we'll help you figure out exactly what you need and give you a quote.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="contact-block">
+            <h4>📍 Visit Us</h4>
+            <p>40054A Dihatshwana Village<br>Mahikeng, North West, 2735</p>
+          </div>
+          <div class="contact-block">
+            <h4>📞 Call Us</h4>
+            <p><a href="tel:0606658968">060 665 8968</a></p>
+          </div>
+          <div class="contact-block">
+            <h4>🕒 Opening Hours</h4>
+            <p>Open · Closes 2 PM</p>
+            <p style="font-size: 0.85rem; margin-top: 6px; color: var(--ink-muted);">Call ahead to confirm availability for larger projects or installations.</p>
+          </div>
+          <div class="contact-actions">
+            <a href="tel:0606658968" class="btn btn-primary">📞 Call Now</a>
+            <a href="https://www.google.com/maps?q=40054A+Dihatshwana+Village,+Mahikeng,+North+West,+2735" class="btn btn-outline" target="_blank">🗺️ Get Directions</a>
+          </div>
+        </div>
+
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps?q=40054A+Dihatshwana+Village,+Mahikeng,+North+West,+2735&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Sesupo Business Solutions"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <div class="cta-final-inner">
+      <h2>Ready to print, brand, or design something?</h2>
+      <p>Give us a call and tell us what you have in mind. We'll work with you from concept to finished product.</p>
+      <div class="cta-final-actions">
+        <a href="tel:0606658968" class="btn btn-primary">📞 060 665 8968</a>
+        <a href="#services" class="btn btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.3);">See All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Sesupo Business Solutions</div>
+    <div class="footer-tag">Print • Brand • Design</div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:0606658968">060 665 8968</a>
+    </div>
+    <div class="footer-copy">Sesupo Business Solutions · Mahikeng</div>
+  </footer>
+
+  <a href="tel:0606658968" class="whatsapp-float" aria-label="Call">📞</a>
+
+</body>
+</html>
